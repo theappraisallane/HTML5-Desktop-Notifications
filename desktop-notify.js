@@ -95,6 +95,18 @@
                 "ieVerification": ieVerification + 1
             };
         }
+
+        // Focus the window on click, if possible
+        // https://github.com/ttsvetko/HTML5-Desktop-Notifications/issues/8#issuecomment-73461009
+        notification.onclick = function () {
+            try {
+                window.focus();
+                this.cancel();
+            }
+            catch (e) {
+            }
+        };
+
         return notification;
     }
     function getWrapper(notification) {
